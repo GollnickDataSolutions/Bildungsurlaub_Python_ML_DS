@@ -5,11 +5,5 @@ description = "This is a project for the 'Python forMachine Learning and Data Sc
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
-    "altair>=5.5.0",
-    "folium>=0.19.7",
-    "mlxtend>=0.23.4",
-    "pandas>=2.3.0",
-    "plotnine>=0.14.5",
-    "scikit-learn>=1.7.0",
-    "seaborn>=0.13.2",
+
 ]
