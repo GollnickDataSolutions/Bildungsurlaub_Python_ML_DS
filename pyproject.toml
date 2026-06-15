@@ -1,6 +1,6 @@
 [project]
 name = "python-ml-ds-material"
-version = "0.1.0"
+version = "1.0"
 description = "This is a project for the 'Python forMachine Learning and Data Science' course"
 readme = "README.md"
 requires-python = ">=3.12"
@@ -16,4 +16,7 @@ dependencies = [
     "seaborn>=0.13.2",
     "xlrd>=2.0.2",
     "nbformat>=5.10.4",
+    "streamlit>=1.58.0",
+    "surprise>=0.1",
+    "ipykernel>=7.3.0",
 ]
