@@ -1,0 +1,6 @@
+Column1;city;temperature;humidity;wind_speed;;
+0;Berlin;18;65;12;;
+1;Hamburg;15;72;18;;
+2;München;22;58;8;;
+3;Köln;17;70;14;;
+4;Frankfurt;20;63;10;;DataFrame

@@ -1,7 +1,5 @@
 import streamlit as st
 import pandas as pd
-import plotly.express as px
-import plotly.graph_objects as go
 from pathlib import Path
 
 def load_data():
@@ -36,7 +34,7 @@ def main():
     
     # Display raw data
     with st.expander("Show raw data", expanded=False):
-        st.dataframe(df, use_container_width=True)
+        st.dataframe(df)
 
 if __name__ == "__main__":
     main()
