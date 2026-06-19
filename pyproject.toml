@@ -20,4 +20,5 @@ dependencies = [
     "surprise>=0.1",
     "ipykernel>=7.3.0",
     "shap>=0.52.0",
+    "openpyxl>=3.1.5",
 ]
