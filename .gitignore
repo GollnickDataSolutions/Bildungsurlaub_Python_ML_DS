@@ -2,3 +2,7 @@ scripts/
 autoresearch-skill/
 autoresearch-skill-workspace/
 _archive/
+
+.env
+.cline/
+our_scripts/create_openrouter_key.py
