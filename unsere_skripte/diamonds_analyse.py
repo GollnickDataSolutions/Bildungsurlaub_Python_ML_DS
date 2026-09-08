@@ -51,3 +51,64 @@ df_diamonds.loc[filter_for_cut & filter_price]
 
 #%%
 df_diamonds[filter_for_cut]
+
+#%% Visualisierung der Daten
+# from plotnine import * # das hier eher nicht verwenden
+
+# from plotnine import ggplot, aes, geom_bar, geom_point, geom_density, geom_histogram, facet_grid, facet_wrap
+
+import plotnine as p
+
+#%% 1 Dimension (diskrete Variable)
+g = (
+    p.ggplot(data=df_diamonds) 
+    + p.aes(x='cut') 
+    + p.geom_bar()
+) 
+g
+
+#%%
+from pandas.api.types import CategoricalDtype
+cut_order = CategoricalDtype(['Fair', 'Good', 'Very Good', 'Premium', 'Ideal'], ordered=True)
+df_diamonds['cut'] = df_diamonds['cut'].astype(cut_order)
+
+#%% 2 Variablen: x='x', y='y'
+# Filter cut nach Ideal und Premium
+# Bonus: Reihefolge der Subplots ändern
+filter_cut = df_diamonds['cut'].isin(['Ideal', 'Premium'])
+g = (
+    p.ggplot(data=df_diamonds[filter_cut]) 
+    + p.aes(x='x', y='y', color='price') 
+    + p.geom_point()
+    + p.facet_grid(rows='cut', cols='color')
+    + p.labs(x='Horizontale Ausdehnung [mm]', y= 'Vertikale Ausdehnung [mm]', title='Diamanten-Analyse', subtitle='Punkteplot für Preis und Größe der Diamanten')
+    + p.theme_dark()
+    + p.scale_color_gradient()
+) 
+g
+# g.save("diamonds.png")
+# %% x=clarity, y=price --> findet eine geeignete Visualisierung
+g = (
+    p.ggplot(data=df_diamonds[filter_cut])
+    + p.aes(x='x', y='y', color='price')
+    + p.geom_point()
+    + p.facet_grid(rows='cut', cols='color')
+    + p.labs(x='Horizontale Ausdehnung [mm]', y='Vertikale Ausdehnung [mm]', title='Diamanten-Analyse', subtitle='Punkteplot für Preis und Größe der Diamanten')
+    + p.theme_dark()
+    + p.scale_color_gradient()
+)
+g
+
+#%% Seaborn
+import seaborn.objects as so
+(
+    so.Plot(df_diamonds[filter_cut], x='x', y='y', color='price')
+    .facet(row='cut', col='color')
+    .add(so.Dot())
+)
+
+
+# %%
+import seaborn as sns
+penguins = sns.load_dataset("penguins").dropna()
+penguins.to_csv("penguins.csv")

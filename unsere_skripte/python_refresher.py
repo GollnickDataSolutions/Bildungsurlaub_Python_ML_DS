@@ -89,25 +89,8 @@ response = requests.get(api_endpoint).json()
 #%%
 response['iss_position']['longitude']
 
-#%% Dateisysteminteraktion
-import os
-os.listdir(".")
+#%% Dateisysteminteraktionen
 
-#%% Unterordner erstellen
-sub_folder = "data"
-if not os.path.exists(sub_folder):
-    os.makedirs(sub_folder)
 
 
 #%% Dataframes
-import pandas as pd
-my_dict = {
-    "name": ["Stuart", "Bob", "Kevin"],
-    "grades": [2, 3, 1]
-}
-df_minions = pd.DataFrame(my_dict)
-
-# %% Spalten und Zeilen des Dataframes ermitteln
-print(f"Anzahl Zeilen: {len(df_minions)}")  # Anzahl Zeilen
-print(df_minions.count(axis=1))
-print(f"Shape: {df_minions.shape}") # liefert Anzahl Zeilen, Anzahl Spalten
