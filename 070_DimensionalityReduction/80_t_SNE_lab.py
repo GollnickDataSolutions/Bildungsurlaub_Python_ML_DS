@@ -33,6 +33,17 @@ plt.show()
 # %%
 digits_embedded = TSNE(n_components=2).fit_transform(X)
 
+#%% PCA
+from sklearn.decomposition import PCA
+pca = PCA(n_components=2).fit_transform(X)
+df_pca = pd.DataFrame(pca, columns=['Component1', 'Component2'])
+df_pca['target'] = pd.Categorical(y)
+
+# %%
+(ggplot(data=df_pca) 
+ + aes(x='Component1', y='Component2', color='target')
+ + geom_point()
+)
 
 # %%
 df = pd.DataFrame(digits_embedded, columns=['Component1', 'Component2'])
@@ -40,7 +51,7 @@ df['target'] = pd.Categorical(y)
 
 
 # %%
-(ggplot(data=df) 
+(ggplot(data=df_pca ) 
  + aes(x='Component1', y='Component2', color='target')
  + geom_point()
 )

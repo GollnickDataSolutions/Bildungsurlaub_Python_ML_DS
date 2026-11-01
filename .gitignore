@@ -6,3 +6,6 @@ _archive/
 .env
 .cline/
 our_scripts/create_openrouter_key.py
+
+.claude/settings.json
+.claude/_settings.json
